@@ -1,0 +1,155 @@
+/* Səhifənin fonu */
+body {
+    font-family: Arial, sans-serif;
+    background: #dbeafe;          /* açıq mavi */
+    display: flex;
+    justify-content: center;
+    padding: 40px 16px;
+    margin: 0;
+}
+
+/* Əsas kart */
+.card {
+    width: 340px;
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Axtarış hissəsi */
+.search {
+    display: flex;
+    gap: 8px;
+}
+
+.search input {
+    flex: 1;
+    padding: 10px 12px;
+    font-size: 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    outline: none;
+}
+
+.search input:focus {
+    border-color: #2563eb;        /* fokus olanda mavi çərçivə */
+}
+
+.search button {
+    padding: 10px 16px;
+    font-size: 15px;
+    color: #fff;
+    background: #2563eb;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.search button:hover {
+    background: #1d4ed8;          /* üzərinə gələndə bir az tünd */
+}
+
+/* Xəta mesajı */
+#message {
+    color: #dc2626;
+    min-height: 20px;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+/* Şəhər və ölkə */
+.city {
+    margin: 0;
+    font-size: 28px;
+    color: #1e293b;
+}
+
+.country {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: #64748b;
+}
+
+/* İkon */
+.icon {
+    width: 90px;
+    height: 90px;
+}
+
+.icon:not([src]),
+.icon[src=""] {
+    display: none;                /* boş olanda sınıq şəkil görünməsin */
+}
+
+/* Temperatur və hava vəziyyəti */
+.temp {
+    margin: 0;
+    font-size: 48px;
+    font-weight: bold;
+    color: #0f172a;
+}
+
+.condition {
+    margin: 4px 0 0;
+    color: #475569;
+}
+
+/* Aşağıdakı 3 məlumat */
+.details {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+
+.details div {
+    padding: 14px 6px;
+    background: rgba(255, 255, 255, 0.16);
+    border-radius: 16px;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.details span {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12px;
+    color: #64748b;
+}
+
+.details strong {
+    font-size: 14px;
+    color: #1e293b;
+}
+.details div:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.24);
+}
+
+.last-box {
+    display: none;                /* cookie olmayanda gizli qalır */
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 12px 16px;
+    background: #f1f5f9;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.last-box:hover {
+    background: #e2e8f0;
+}
+
+.last-title {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.last-city {
+    font-size: 15px;
+    font-weight: bold;
+    color: #1e293b;
+}
