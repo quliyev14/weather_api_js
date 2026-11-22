@@ -12,10 +12,26 @@ const humidity = document.getElementById("humidity");
 const lastBox = document.getElementById("lastBox");
 const lastCity = document.getElementById("lastCity");
 
+const images = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvIvyPlSVZZTLiBrRcdmf_E4PlVe2_RUMdVWB_Hj8kiQ&s=10"]
+
+//arasdirmisam
+const iconMap = {
+    sunny:   [1000],
+    partly:  [1003],
+    cloudy:  [1006, 1009],
+    fog:     [1030, 1135, 1147],
+    drizzle: [1150, 1153, 1168, 1171],
+    rain:    [1063, 1180, 1183, 1240, 1186, 1189, 1192, 1195, 1243, 1246],
+    sleet:   [1069, 1072, 1198, 1201, 1204, 1207, 1249, 1252],
+    snow:    [1066, 1114, 1117, 1210, 1213, 1216, 1219, 1222, 1225, 1255, 1258],
+    hail:    [1237, 1261, 1264],
+    thunder: [1087, 1273, 1276, 1279, 1282]
+};
+
 
 function setCookie(name, value) {
     const d = new Date();
-    const second = 10;  //10 saniye verdim gorum isleyir.
+    const second = 24 * 3600;  //10 saniye verdim gorum isleyir. update
     d.setTime(d.getTime() + second * 1000);
     document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + d.toUTCString() + ";path=/";
 }
@@ -33,54 +49,62 @@ function getCookieValue(key) {
     return "";
 }
 
-const Search = () => {
 
+const Search = () => {
     const query = cityInput.value.trim();
     if (!query) return;
-
+    
     const url = `https://api.weatherapi.com/v1/current.json?key=feaf7f7c08694e85a95174717262211&q=${cityInput.value}`;
-
+    
     const xhr = new XMLHttpRequest();
-
+    
     //shift + option + F kodu seliqeye salir
-
+    
     xhr.open("GET", url, true);
-
+    
     xhr.onload = () => {
         const data = JSON.parse(xhr.responseText);
-
+        
         console.log(xhr.status);
         console.log(xhr.responseText);
-
+        
         if (xhr.status === 200) {
-            message.innerText = "";
-
             city.innerText = data.location.name;
             country.innerText = data.location.country;
-            icon.src = "https:" + data.current.condition.icon;
             temperator.innerText = data.current.temp_c + " °C";
             condition.innerText = data.current.condition.text;
+            icon.src = getIcon(data.current.condition.code);
             feels.innerText = data.current.feelslike_c + " °C";
             wind.innerText = data.current.wind_kph + " km/s";
             humidity.innerText = data.current.humidity + " %";
-
-            setCookie("lastCity", data.location.name); 
+            
+            setCookie("lastCity", data.location.name);
             showLastSearch();
         }
         else {
             message.innerText = "not found city";
         }
     };
-
+    
     xhr.onerror = () => {
         console.log("connection error");
     };
     xhr.send();
 }
 
+
+const getIcon = (code) => {
+    for (const name in iconMap) {
+        if (iconMap[name].includes(code)) {
+            return `icons/${name}.png`;
+        }
+    }
+    return "icons/rain.png";
+};
+
 const showLastSearch = () => {
     const last = getCookieValue("lastCity");
-
+    
     if (!last) {
         lastBox.style.display = "none";
         return;
