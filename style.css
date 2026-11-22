@@ -1,14 +1,13 @@
-/* Səhifənin fonu */
 body {
     font-family: Arial, sans-serif;
-    background: #dbeafe;          /* açıq mavi */
+    background: #dbeafe;          
     display: flex;
     justify-content: center;
     padding: 40px 16px;
     margin: 0;
 }
 
-/* Əsas kart */
+
 .card {
     width: 340px;
     background: #ffffff;
@@ -18,7 +17,6 @@ body {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
-/* Axtarış hissəsi */
 .search {
     display: flex;
     gap: 8px;
@@ -34,7 +32,7 @@ body {
 }
 
 .search input:focus {
-    border-color: #2563eb;        /* fokus olanda mavi çərçivə */
+    border-color: #2563eb;        
 }
 
 .search button {
@@ -48,10 +46,10 @@ body {
 }
 
 .search button:hover {
-    background: #1d4ed8;          /* üzərinə gələndə bir az tünd */
+    background: #1d4ed8;       
 }
 
-/* Xəta mesajı */
+
 #message {
     color: #dc2626;
     min-height: 20px;
@@ -59,7 +57,7 @@ body {
     font-size: 14px;
 }
 
-/* Şəhər və ölkə */
+
 .city {
     margin: 0;
     font-size: 28px;
@@ -72,7 +70,7 @@ body {
     color: #64748b;
 }
 
-/* İkon */
+
 .icon {
     width: 90px;
     height: 90px;
@@ -80,10 +78,9 @@ body {
 
 .icon:not([src]),
 .icon[src=""] {
-    display: none;                /* boş olanda sınıq şəkil görünməsin */
+    display: none;             
 }
 
-/* Temperatur və hava vəziyyəti */
 .temp {
     margin: 0;
     font-size: 48px;
@@ -96,7 +93,6 @@ body {
     color: #475569;
 }
 
-/* Aşağıdakı 3 məlumat */
 .details {
     display: flex;
     justify-content: space-between;
@@ -129,7 +125,7 @@ body {
 }
 
 .last-box {
-    display: none;                /* cookie olmayanda gizli qalır */
+    display: none;             
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
