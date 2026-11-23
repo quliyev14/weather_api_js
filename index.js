@@ -20,8 +20,7 @@ const iconMap = {
     partly:  [1003],
     cloudy:  [1006, 1009],
     fog:     [1030, 1135, 1147],
-    drizzle: [1150, 1153, 1168, 1171],
-    rain:    [1063, 1180, 1183, 1240, 1186, 1189, 1192, 1195, 1243, 1246],
+    drizzlerain:    [1063, 1150, 1153, 1168, 1171, 1180, 1183, 1240, 1186, 1189, 1192, 1195, 1243, 1246],
     sleet:   [1069, 1072, 1198, 1201, 1204, 1207, 1249, 1252],
     snow:    [1066, 1114, 1117, 1210, 1213, 1216, 1219, 1222, 1225, 1255, 1258],
     hail:    [1237, 1261, 1264],
@@ -48,7 +47,6 @@ function getCookieValue(key) {
     }
     return "";
 }
-
 
 const Search = () => {
     const query = cityInput.value.trim();
@@ -99,7 +97,7 @@ const getIcon = (code) => {
             return `icons/${name}.png`;
         }
     }
-    return "icons/rain.png";
+    return "icons/weather.png";
 };
 
 const showLastSearch = () => {
